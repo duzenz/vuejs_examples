@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>title</title>
+  </head>
+  <body>
+
+	<div id="app">
+		<p>{{sayHello()}}</p>
+		<!--<a href="{{link}}"></a> cant use like that because it only work with texts-->
+		<a v-bind:href="link">google</a><!--no need curly braces--> 
+	</div>
+
+	<script src="vue.js"></script>
+
+	<script>
+		new Vue({
+	
+		  el: '#app',
+		  data: {
+			  title: "Hello World!",
+			  link: "http://google.com"
+		  },
+		  methods: {
+			  sayHello: function() {
+				  return this.title;
+			  }
+		  }
+
+		})
+	</script>
+
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>title</title>
+  </head>
+  <body>
+
+	<div id="app">
+		<h1 v-once>{{title}}</h1>
+		<p>{{sayHello()}}</p>
+		<!--<a href="{{link}}"></a> cant use like that because it only work with texts-->
+		<a v-bind:href="link">google</a><!--no need curly braces-->
+		
+		<hr>
+
+		<p>{{fullLink}}</p>
+		<p v-html="fullLink"></p><!--cross site scripting problem-->
+	</div>
+
+	<script src="vue.js"></script>
+
+	<script>
+		new Vue({
+	
+		  el: '#app',
+		  data: {
+			  title: "Hello World!",
+			  link: "http://google.com",
+			  fullLink: "<a href='http://google.com'>Google</a>"
+		  },
+		  methods: {
+			  sayHello: function() {
+				  this.title = "Hello"
+				  return this.title;
+			  }
+		  }
+
+		})
+	</script>
+
+  </body>
+</html>
